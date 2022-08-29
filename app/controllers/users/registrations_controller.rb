@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-    respond_to :json
+  before_action :authenticate_user!
+  respond_to :json
 
     private
     
@@ -8,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     
     def register_success
-      render json: { message: 'Signed up.', status_code: 200 }, status: :ok
+      render json: { status_code: 200, message: 'Welcome! You have signed up successfully.', user: current_user }, status: :ok
     end
     
     def register_failed
