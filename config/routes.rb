@@ -27,9 +27,7 @@ Rails.application.routes.draw do
   post '/api/createFeedback', to: "feedback#create", as: "createFeedback"
   get '/api/getFeedback', to: "feedback#index", as: "getFeedback"
   
-##############################################################################
-  # get "/users/getDropLocations", to:"drop#show"
-###############################################################################
+  get "/api/getDropLocations", to:"drop#show", as: "getDropLocations"
   
   # get '/api/getTim', to: proc { [200, {}, [ DateTime.now.utc.to_s + ' ' + Time.now.strftime("%H:%M").to_s + ' .. ' + DateTime.now.getutc.to_s + '  .. ' + Time.now.utc.to_s + ' ..  ' + DateTime.now.new_offset.to_s + ' ..  ' + Time.utc(*Time.now.to_a).to_s ]] }
   
