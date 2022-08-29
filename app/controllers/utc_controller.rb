@@ -2,7 +2,6 @@ class UtcController < ApplicationController
     before_action :active_drop
     before_action :non_active_drop
     
-    before_action :find_user, only: [:user]
     respond_to :json
 
     def time
@@ -24,22 +23,8 @@ class UtcController < ApplicationController
                         }, status: :ok
     end
 
-    def user
-        if find_user.present?
-            render json: { status_code: 200, data: find_user }, status: :ok
-        else
-            render json: { status_code: 404, message: 'User not found!' }, status: :ok
-        end
-        
-    end
-
-
     private 
-      
-    def find_user
-        User.find_by(email: params[:user][:email])
-    end
-
+    
     def active_drop
         @active_drop = Drop.where(is_active: true)
     end
