@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post '/api/castVote', to: "votes#castvote", as: "castVote"
 
   post '/api/updatePaymentStatus', to: "updatepayment#update", as: "updatePayment"
+
+  post '/api/registerPoll', to: "poll#create", as: "registerPoll"
   
 ##############################################################################
   # post "/users/createFeedback", to:"feedback#create"
