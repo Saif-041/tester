@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   post '/api/register', to: "registration#create", as: "register"
   delete '/api/logout', to: "session#destroy", as: "logout"
 
-  get 'api/getTime', to: "utc#time", as: "time"
-  get 'api/getUserInformation', to: "getuserinformation#show", as: "user"
+  get '/api/getTime', to: "utc#time", as: "time"
+
+  get '/api/getUserInformation', to: "getuserinformation#show", as: "user"
+
+  post '/api/castVote', to: "votes#castvote", as: "castVote"
   
 ##############################################################################
   # post "/users/updateUserPaymentStatus", to:"updatepayment#update"

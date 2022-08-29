@@ -5,7 +5,7 @@ class UtcController < ApplicationController
     respond_to :json
 
     def time
-        render json: { time: '' + DateTime.now.utc.to_s }, status: :ok
+        render json: { status_code: 200, time: '' + DateTime.now.utc.to_s }, status: :ok
     end
 
     def test
