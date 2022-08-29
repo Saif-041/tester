@@ -11,15 +11,16 @@ Rails.application.routes.draw do
   delete '/api/logout', to: "session#destroy", as: "logout"
 
   get '/api/getTime', to: "utc#time", as: "time"
+  get '/api/testUTC', to: "utc#test", as: "testUTC"
 
   get '/api/getUserInformation', to: "getuserinformation#show", as: "user"
 
   post '/api/castVote', to: "votes#castvote", as: "castVote"
+
+  post '/api/updatePaymentStatus', to: "updatepayment#update", as: "updatePayment"
   
 ##############################################################################
-  # post "/users/updateUserPaymentStatus", to:"updatepayment#update"
   # post "/users/createFeedback", to:"feedback#create"
-  # post "/users/castVote", to:"votes#castvote"
   # post "/users/registerPoll", to:"poll#create"
   # get "/users/getFeedback", to:"feedback#index"
   # get "/users/getDropLocations", to:"drop#show"
