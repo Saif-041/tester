@@ -3,12 +3,10 @@ class UtcController < ApplicationController
     respond_to :json
 
     def time
-        render json: { time: '' + DateTime.now.utc.to_s[11,5] }, status: :ok
-    #   render inline: "Some string to the client/user"
+        render json: { time: '' + DateTime.now.utc.to_s }, status: :ok
     end
 
     def user
-        # resource = User.find_by(email: params[:user][:email])
         if find_user.present?
             render json: { data: find_user, status_code: 200 }, status: :ok
         else
@@ -16,7 +14,7 @@ class UtcController < ApplicationController
         end
         
     end
-
+    
 
     private 
       

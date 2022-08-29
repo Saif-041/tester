@@ -3,15 +3,8 @@ class Users::SessionsController < Devise::SessionsController
     respond_to :json
 
     def create
-      #byebug
-      #self.resource = warden.authenticate!(auth_options)
       self.resource = User.find_by(email: params[:user][:email])
-      resource.present? ? login_user : show_invalid_message
-        
-      # set_flash_message!(:notice, :signed_in)
-      # sign_in(resource_name, resource)
-      # yield resource if block_given?
-      # respond_with resource, location: after_sign_in_path_for(resource)
+      resource.present? ? login_user : show_invalid_message       
     end
 
     private
@@ -21,28 +14,9 @@ class Users::SessionsController < Devise::SessionsController
       if !resource.present?
         render json: { message: 'User Does not exits!', status_code: 401 }, status: :ok
       elsif all_signed_out?
-        set_flash_message! :notice, :already_signed_out
-  
+        set_flash_message! :notice, :already_signed_out  
         respond_to_on_destroy
       end
-                    # byebug
-                    # self.resource = User.find_by(email: params[:user][:email])
-
-                    # if !resource.present?
-                    #   render json: { message: 'User Does not exits!', status: 401 }, status: :ok
-                    # end
-
-                    # if all_signed_out?
-                    #   set_flash_message! :notice, :already_signed_out
-                      
-                    #   respond_to_on_destroy
-                    # end
-
-                    # if !all_signed_out?
-                    #   render json: { message: 'User Already Logout!', status: 500 }, status: :ok
-                    #   # respond_to_on_destroy
-                    # end
-        #respond_to_on_destroy
     end
 
     def login_user
@@ -54,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
     end
 
     def show_invalid_message
-      render json: { message: 'Invalid email or password!', status_code: 500}, status: :ok
+      render json: { message: 'Invalid email!', status_code: 500}, status: :ok
     end
 
     def respond_with(resource, _opts = {})
