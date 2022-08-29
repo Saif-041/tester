@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
 
-  post '/api/login', to: "session#create", as: "login"
   post '/api/register', to: "registration#create", as: "register"
+  post '/api/login', to: "session#create", as: "login"
   delete '/api/logout', to: "session#destroy", as: "logout"
 
   get '/api/getTime', to: "utc#time", as: "time"
@@ -23,12 +23,12 @@ Rails.application.routes.draw do
   get '/api/getActivePolls', to: "poll#index", as: "ShowCurrentPoll"
 
   get '/api/getNGOs', to: "ngo#index", as: "getNGOs"
+
+  post '/api/createFeedback', to: "feedback#create", as: "createFeedback"
+  get '/api/getFeedback', to: "feedback#index", as: "getFeedback"
   
 ##############################################################################
-  # post "/users/createFeedback", to:"feedback#create"
-  # get "/users/getFeedback", to:"feedback#index"
   # get "/users/getDropLocations", to:"drop#show"
-  # get '/users/testUTC', to: "utc#test"
 ###############################################################################
   
   # get '/api/getTim', to: proc { [200, {}, [ DateTime.now.utc.to_s + ' ' + Time.now.strftime("%H:%M").to_s + ' .. ' + DateTime.now.getutc.to_s + '  .. ' + Time.now.utc.to_s + ' ..  ' + DateTime.now.new_offset.to_s + ' ..  ' + Time.utc(*Time.now.to_a).to_s ]] }
