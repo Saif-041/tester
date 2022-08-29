@@ -21,12 +21,13 @@ Rails.application.routes.draw do
 
   post '/api/registerPoll', to: "poll#create", as: "registerPoll"
   get '/api/getActivePolls', to: "poll#index", as: "ShowCurrentPoll"
+
+  get '/api/getNGOs', to: "ngo#index", as: "getNGOs"
   
 ##############################################################################
   # post "/users/createFeedback", to:"feedback#create"
   # get "/users/getFeedback", to:"feedback#index"
   # get "/users/getDropLocations", to:"drop#show"
-  # get '/users/getNGOs', to: "ngo#index"
   # get '/users/testUTC', to: "utc#test"
 ###############################################################################
   
