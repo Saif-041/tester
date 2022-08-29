@@ -51,7 +51,7 @@ class PollController < ApplicationController
                         ]
             render json: {status_code: 200, data: @result }, status: :ok
         else
-            render json: { status_code: 404, message:"No Poll's available to vote"}, status: :ok
+            render json: { status_code: 404, message:"Currently no poll available!"}, status: :ok
         end
     end
 

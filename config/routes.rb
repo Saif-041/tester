@@ -20,14 +20,13 @@ Rails.application.routes.draw do
   post '/api/updatePaymentStatus', to: "updatepayment#update", as: "updatePayment"
 
   post '/api/registerPoll', to: "poll#create", as: "registerPoll"
+  get '/api/getActivePolls', to: "poll#index", as: "ShowCurrentPoll"
   
 ##############################################################################
   # post "/users/createFeedback", to:"feedback#create"
-  # post "/users/registerPoll", to:"poll#create"
   # get "/users/getFeedback", to:"feedback#index"
   # get "/users/getDropLocations", to:"drop#show"
   # get '/users/getNGOs', to: "ngo#index"
-  # get '/users/getActivePolls', to: "poll#index"
   # get '/users/testUTC', to: "utc#test"
 ###############################################################################
   
