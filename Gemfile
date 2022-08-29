@@ -22,6 +22,14 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'byebug'
 
+## when you add these, run bundle command!
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
+# gem 'activeadmin'
+# gem 'sass-rails'
+# gem 'country_select', '~> 6.0'
+# gem 'city-state'
+
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
