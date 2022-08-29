@@ -26,9 +26,9 @@ class UtcController < ApplicationController
 
     def user
         if find_user.present?
-            render json: { data: find_user, status_code: 200 }, status: :ok
+            render json: { status_code: 200, data: find_user }, status: :ok
         else
-            render json: { message: 'User not found!', status_code: 404 }, status: :ok
+            render json: { status_code: 404, message: 'User not found!' }, status: :ok
         end
         
     end
@@ -43,7 +43,7 @@ class UtcController < ApplicationController
     def active_drop
         @active_drop = Drop.where(is_active: true)
     end
-    
+
     def non_active_drop
         @non_active_drop = Drop.where(is_active: false)
     end
