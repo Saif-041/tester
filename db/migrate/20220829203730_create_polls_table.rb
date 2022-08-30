@@ -11,6 +11,7 @@ class CreatePollsTable < ActiveRecord::Migration[7.0]
       t.integer :ngo_3_votes, default: 0
       t.integer :ngo_4_votes, default: 0
       t.datetime :expire_time, default: DateTime.now.utc
+      t.boolean :is_active, default: true
 
       t.timestamps
     end
