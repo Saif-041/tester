@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_221034) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_072456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_221034) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "expire_time", default: "2022-08-29 22:12:58"
+    t.boolean "is_active", default: true
     t.index ["ngo_id_1_id"], name: "index_polls_on_ngo_id_1_id"
     t.index ["ngo_id_2_id"], name: "index_polls_on_ngo_id_2_id"
     t.index ["ngo_id_3_id"], name: "index_polls_on_ngo_id_3_id"
