@@ -5,9 +5,9 @@ class GetuserinformationController < ApplicationController
 
         def show
             if @user.nil?
-                render json: { status_code: 200, user: @user }, status: :ok
-            else
                 render json: { status_code: 404, message: 'Invalid User Id!' }, status: :ok
+            else
+                render json: { status_code: 200, user: @user }, status: :ok
             end            
         end
 

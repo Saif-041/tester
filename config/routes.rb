@@ -5,11 +5,26 @@ Rails.application.routes.draw do
       sessions: 'users/sessions',
       registrations: 'users/registrations'
   }
+  
+  # devise_for :user, 
+  # :path => '', 
+  # :path_names => { 
+  #   :sign_in => "login", 
+  #   :sign_out => "logout", 
+  #   :sign_up => "register" 
+  # }
 
-  post '/api/register', to: "registration#create", as: "register"
-  post '/api/login', to: "session#create", as: "login"
-  delete '/api/logout', to: "session#destroy", as: "logout"
 
+  # devise_scope :user do
+  #   post '/api/register', to: "users/registrations#create"
+  #   post '/api/login', to: "users/sessions#create"
+  #   delete '/api/logout', to: "users/sessions#destroy"
+  # end
+
+  # post '/api/register', to: "users/registrations#create"
+  # post '/api/login', to: "users/sessions#create", as: "user_session"
+  # delete '/api/logout', to: "session#destroy", as: "logout"
+  
   get '/api/getTime', to: "utc#time", as: "time"
   get '/api/testUTC', to: "utc#test", as: "testUTC"
 
