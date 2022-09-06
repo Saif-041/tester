@@ -33,7 +33,7 @@ class DropController < ApplicationController
                     status: 401
                 }, status: :ok
             elsif @drop.is_active == true
-                @user.total_collections = @user.total_collections + @drop.reward_amount
+                @user.total_collection = @user.total_collection + @drop.reward_amount
                 @user.save
                 @drop.is_active = false
                 @drop.save
