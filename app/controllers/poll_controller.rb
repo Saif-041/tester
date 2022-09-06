@@ -1,5 +1,5 @@
 class PollController < ApplicationController
-    before_action :find_user, only: [:update]
+    before_action :find_user, only: [:create]
     before_action :get_poll, only: [:show]
 
     def create
@@ -44,10 +44,12 @@ class PollController < ApplicationController
                 @ngo4 = Ngo.find_by_id(@polls[@i].ngo_id_4_id)
                 @result = [
                             "Expire on": @polls[@i].expire_time,
+                            data: [
                             { "Ngo_id": @polls[@i].ngo_id_1_id, "Name": @ngo1.name, "Votes": @polls[@i].ngo_1_votes},
                             { "Ngo_id": @polls[@i].ngo_id_2_id, "Name": @ngo2.name, "Votes": @polls[@i].ngo_2_votes},
                             { "Ngo_id": @polls[@i].ngo_id_3_id, "Name": @ngo3.name, "Votes": @polls[@i].ngo_3_votes},
                             { "Ngo_id": @polls[@i].ngo_id_4_id, "Name": @ngo4.name, "Votes": @polls[@i].ngo_4_votes}
+                            ]
                         ]
             render json: {status_code: 200, data: @result }, status: :ok
         else

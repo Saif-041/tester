@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  # devise_for :admins, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
   
   devise_for :users,
   controllers: {
@@ -6,6 +9,10 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
   
+  post "/import/drops", to:"drop#import"
+  get '/cities', to: "drop#city"
+  get '/province', to: "drop#province"
+
   # devise_for :user, 
   # :path => '', 
   # :path_names => { 
@@ -35,7 +42,7 @@ Rails.application.routes.draw do
   post '/api/updatePaymentStatus', to: "updatepayment#update", as: "updatePayment"
 
   post '/api/registerPoll', to: "poll#create", as: "registerPoll"
-  get '/api/getActivePolls', to: "poll#index", as: "ShowCurrentPoll"
+  get '/api/getActivePolls', to: "poll#show", as: "ShowCurrentPoll"
 
   get '/api/getNGOs', to: "ngo#index", as: "getNGOs"
 
@@ -43,6 +50,7 @@ Rails.application.routes.draw do
   get '/api/getFeedback', to: "feedback#index", as: "getFeedback"
   
   get "/api/getDropLocations", to:"drop#show", as: "getDropLocations"
+  post "/api/collectDrop", to:"drop#collect"
   
   # get '/api/getTim', to: proc { [200, {}, [ DateTime.now.utc.to_s + ' ' + Time.now.strftime("%H:%M").to_s + ' .. ' + DateTime.now.getutc.to_s + '  .. ' + Time.now.utc.to_s + ' ..  ' + DateTime.now.new_offset.to_s + ' ..  ' + Time.utc(*Time.now.to_a).to_s ]] }
   
