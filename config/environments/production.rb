@@ -42,7 +42,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # added by saif
-  config.session_store :cookie_store, expire_after: 1.year
+  config.session_store :cookie_store, expire_after: 1.year, domain: 'https://asadakram.herokuapp.com/users'
 
 
   # Include generic and useful information about system operation, but avoid logging too much
