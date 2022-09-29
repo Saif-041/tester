@@ -11,9 +11,10 @@ class DropController < ApplicationController
             else
                 @result = [
                             data:
-                            { "longitude": @drop[1].longitude, "latitude": @drop[1].latitude }
+                            [
+                                { "longitude": @drop[1].longitude, "latitude": @drop[1].latitude }
+                            ]
                         ]
-                byebug
                 render json: { @result }, status: :ok
             end
         end
