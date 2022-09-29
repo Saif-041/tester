@@ -14,7 +14,7 @@ class DropController < ApplicationController
                 #             { "longitude": @drop.longitude, "latitude": @drop.latitude},
                 #             ]
                 #         ]
-                render json: { "longitude": @drop.longitude, "latitude": @drop.latitude }, status: :ok
+                render json: { "longitude": @drop[0].longitude, "latitude": @drop[0].latitude }, status: :ok
             end
         end
     end
