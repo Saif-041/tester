@@ -9,13 +9,13 @@ class DropController < ApplicationController
             if !@drop.present?  || @user.city.nil?
                 render json: { status_code: 404, message: "No Drops found in your city"}, status: :ok  
             else
-                @result = [
-                            data:
-                            [
-                                { "longitude": @drop[1].longitude, "latitude": @drop[1].latitude }
-                            ]
-                        ]
-                render json: { @result }, status: :ok
+                # @result = [
+                #             data:
+                #             [
+                #                 { "longitude": @drop[1].longitude, "latitude": @drop[1].latitude }
+                #             ]
+                #         ]
+                render json: { data: ["longitude": @drop[1].longitude, "latitude": @drop[1].latitude] }, status: :ok
             end
         end
     end
